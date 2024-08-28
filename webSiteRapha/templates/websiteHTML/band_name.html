@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Band Name Generator</title>
+</head>
+<body>
+    <h1>Band Name Generator</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="city">What's the name of the city you grew up in?</label>
+        <input type="text" name="city" id="city" required><br>
+        <label for="pet">What's your pet's name?</label>
+        <input type="text" name="pet" id="pet" required><br>
+        <button type="submit">Generate Band Name</button>
+    </form>
+    {% if band_name %}
+    <p>Your band name could be: {{ band_name }}</p>
+    {% endif %}
+    <button onclick="window.location.href='{% url 'home' %}'">Go Back Home</button>
+</body>
+</html>

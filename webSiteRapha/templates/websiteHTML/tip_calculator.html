@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+</head>
+<body>
+    <h1>Welcome to the Tip Calculator!</h1>
+    
+    {% if errors %}
+        <ul style="color: red;">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% if totalPayPer %}
+        <p>Each person should pay: ${{ totalPayPer }}</p>
+    {% endif %}
+    
+    <form method="POST">
+        {% csrf_token %}
+        <label for="totalBill">What was the total bill? $</label>
+        <input type="text" name="totalBill" value="{{ totalBill }}" required><br>
+        
+        <label for="tip">How much tip would you like to give? 10, 12, or 15? :</label>
+        <input type="text" name="tip" value="{{ tip }}" required><br>
+        
+        <label for="splitBill">How many people to split the bill? </label>
+        <input type="text" name="splitBill" value="{{ splitBill }}" required><br>
+        
+        <button type="submit">Calculate</button>
+    </form>
+    
+    <br>
+    <a href="{% url 'home' %}">Go back to the home page</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulações Django</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'band_name' %}">Band Name Generator</a> |
+        <a href="{% url 'tip_calculator' %}">Tip Calculator</a>
+    </nav>
+    <hr>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
