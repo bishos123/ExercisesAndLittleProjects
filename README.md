@@ -21,7 +21,7 @@
 
 1. Clone este repositório:
     ```bash
-    git clone https://github.com/raphaelmenezes/sitePortfolio.git
+    git clone https://github.com/bishos123/sitePortfolio.git
     ```
 2. Navegue até o diretório do projeto:
     ```bash
