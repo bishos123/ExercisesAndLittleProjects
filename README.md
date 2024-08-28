@@ -25,7 +25,7 @@
     ```
 2. Navegue até o diretório do projeto:
     ```bash
-    cd myproject
+    cd exercisesWebSiteRapha
     ```
 3. Instale as dependências necessárias:
     ```bash
