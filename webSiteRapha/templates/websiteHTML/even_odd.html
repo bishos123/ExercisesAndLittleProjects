@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even or Odd Checker</title>
+</head>
+<body>
+    <h1>Let's check if your number is even or odd!</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="number">Number:</label>
+        <input type="text" id="number" name="number">
+        <button type="submit">Check</button>
+    </form>
+    
+    {% if result %}
+        <p>{{ result }}</p>
+    {% endif %}
+    <br>
+    <button onclick="window.location.href='{% url 'home' %}'">Go Back Home</button>
+</body>
+</html>

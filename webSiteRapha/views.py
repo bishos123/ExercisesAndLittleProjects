@@ -61,7 +61,20 @@ def tip_calculator(request):
         })
 
     return render(request, 'websiteHTML/tip_calculator.html')
-    
+
+
+def even_odd(request):
+    result = None
+    if request.method == 'POST':
+        try:
+            number = int(request.POST.get('number'))
+            if number % 2 == 0 :
+                result = f"Your number {number} is even!"
+            else:
+                result = f"Your number {number} is odd!"
+        except ValueError:
+            result = "Please enter a valid character"
+    return render(request, 'websiteHTML/even_odd.html', {'result': result})
 
 def home(request):
     return render(request, 'websiteHTML/home.html')
