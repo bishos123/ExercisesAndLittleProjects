@@ -21,25 +21,32 @@
 
 1. Clone este repositório:
     ```bash
-    git clone https://github.com/bishos123/sitePortfolio.git
+    git clone https://github.com/raphaelmenezes/sitePortfolio.git
     ```
 2. Navegue até o diretório do projeto:
     ```bash
-    cd exercisesWebSiteRapha
+    cd sitePortfolio
     ```
-3. Instale as dependências necessárias:
+3. Crie um ambiente virtual (opcional, mas recomendado):
     ```bash
+    python -m venv env
+    source env/bin/activate  # Linux/Mac
+    .\env\Scripts\activate  # Windows
+    ```
+4. Instale o Django e as dependências necessárias:
+    ```bash
+    pip install django
     pip install -r requirements.txt
     ```
-4. Execute as migrações do Django:
+5. Execute as migrações do Django:
     ```bash
     python manage.py migrate
     ```
-5. Inicie o servidor de desenvolvimento:
+6. Inicie o servidor de desenvolvimento:
     ```bash
     python manage.py runserver
     ```
-6. Acesse o site no seu navegador em `http://127.0.0.1:8000`.
+7. Acesse o site no seu navegador em `http://127.0.0.1:8000`.
 
 ## Como Usar
 
