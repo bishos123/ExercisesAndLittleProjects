@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import random
 
 # Create your views here.
 
@@ -78,3 +79,38 @@ def even_odd(request):
 
 def home(request):
     return render(request, 'websiteHTML/home.html')
+
+
+def r_p_s(request):
+    result = None
+    player_hand = None
+    npc_hand = None
+    error_message = None
+    if request.method == 'POST':
+        try:
+            possible_nums = [0, 1, 2]
+            player_hand = int(request.POST.get('player_hand'))
+            npc_hand = random.randint(0, 2)
+
+            if player_hand not in possible_nums:
+                raise ValueError("Número inválido")
+            
+            # Determine the result
+            if player_hand != npc_hand:
+                if (player_hand == 0 and npc_hand == 1) or \
+                   (player_hand == 1 and npc_hand == 2) or \
+                   (player_hand == 2 and npc_hand == 0):
+                    result = "You lose!"
+                else:
+                    result = "You won!"
+            else:
+                result = "It's a Draw! Try again!"
+        except ValueError:
+            error_message = "Please enter a valid number and try again, it can be 0, 1 or 2."
+
+    return render(request, 'websiteHTML/r_p_s.html', {
+        'result': result,
+        'player_hand': player_hand,
+        'npc_hand': npc_hand,
+        'error_message': error_message
+    })
