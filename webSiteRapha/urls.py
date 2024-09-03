@@ -21,6 +21,6 @@ urlpatterns = [
     path('band-name/', views.band_name, name='band_name'),
     path('tip-calculator/', views.tip_calculator, name='tip_calculator'),
     path('even_odd/', views.even_odd, name='even_odd'),
-    path('R_P_S/', views.R_P_S, name='R_P_S'),
+    path('r_p_s/', views.r_p_s, name='r_p_s'),
     path('', views.home, name='home')
 ]

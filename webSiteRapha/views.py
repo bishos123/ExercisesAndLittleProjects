@@ -81,16 +81,15 @@ def home(request):
     return render(request, 'websiteHTML/home.html')
 
 
-def R_P_S(request):
+def r_p_s(request):
     result = None
     player_hand = None
     npc_hand = None
     error_message = None
-
     if request.method == 'POST':
         try:
             possible_nums = [0, 1, 2]
-            player_hand = int(request.POST.get('playerHand'))
+            player_hand = int(request.POST.get('player_hand'))
             npc_hand = random.randint(0, 2)
 
             if player_hand not in possible_nums:
@@ -109,7 +108,7 @@ def R_P_S(request):
         except ValueError:
             error_message = "Please enter a valid number and try again, it can be 0, 1 or 2."
 
-    return render(request, 'R_P_S.html', {
+    return render(request, 'websiteHTML/r_p_s.html', {
         'result': result,
         'player_hand': player_hand,
         'npc_hand': npc_hand,
