@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+    <h1>Rock, Paper, Scissors</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="playerHand">What do you choose? Type 0 for Rock, 1 for Paper, or 2 for Scissors:</label>
+        <input type="text" id="playerHand" name="playerHand">
+        <button type="submit">Check</button>
+    </form>
+
+    {% if error_message %}
+        <p style="color: rgb(255, 0, 0);">{{ error_message }}</p>
+    {% endif %}
+
+    {% if result %}
+        <h2>{{ result }}</h2>
+        <p>You chose: 
+            {% if player_hand == 0 %}Rock{% elif player_hand == 1 %}Paper{% elif player_hand == 2 %}Scissors{% endif %}
+        </p>
+        <p>Computer chose: 
+            {% if npc_hand == 0 %}Rock{% elif npc_hand == 1 %}Paper{% elif npc_hand == 2 %}Scissors{% endif %}
+        </p>
+    {% endif %}
+
+    <a href="{% url 'index' %}">Go back to main page</a>
+</body>
+</html>
